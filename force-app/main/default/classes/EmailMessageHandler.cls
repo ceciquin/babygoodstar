@@ -1,6 +1,6 @@
 public class EmailMessageHandler {
     public static void processEmailMessages(List<EmailMessage> emailMessages) {
-        // Existing logic to collect Case IDs and query related Cases
+        //collect Case IDs and query related Cases
         Set<Id> caseIds = new Set<Id>();
         for (EmailMessage em : emailMessages) {
             if (em.ParentId != null && String.valueOf(em.ParentId).startsWith('500')) {
@@ -9,7 +9,7 @@ public class EmailMessageHandler {
         }
         Map<Id, Case> relatedCases = new Map<Id, Case>([SELECT Id, Planet__c, Successful_Scan__c FROM Case WHERE Id IN :caseIds]);
 
-        // Compile the pattern and prepare to collect scan codes
+        // pattern for scan codes
         Pattern pattern = Pattern.compile('\\b[A-Z]{1,2}-\\d{5}\\b');
         Set<String> scanCodes = new Set<String>();
 
