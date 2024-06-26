@@ -1,3 +1,10 @@
 <template>
-    
+    <lightning-card title="Interplanetary Cases" icon-name="custom:custom14">
+        <lightning-datatable
+            key-field="id"
+            data={cases}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </lightning-card>
 </template>
