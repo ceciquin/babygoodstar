@@ -23,8 +23,8 @@ public class EmailMessageHandler {
 
         // Query Planet__c records matching the scan codes
         Map<String, Id> scanCodeToPlanetId = new Map<String, Id>();
-        for (Planet__c planet : [SELECT Id, External_id__c FROM Planet__c WHERE External_id__c IN :scanCodes]) {
-            scanCodeToPlanetId.put(planet.External_id__c, planet.Id);
+        for (Planet_c__c planet : [SELECT Id, Code__c FROM Planet_c__c WHERE Code__c IN :scanCodes]) {
+            scanCodeToPlanetId.put(planet.Code__c, planet.Id);
         }
 
         // List to hold Cases for update

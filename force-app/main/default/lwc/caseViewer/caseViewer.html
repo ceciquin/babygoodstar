@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Case Viewer">
+        <div>
+            <p><b>Subject:</b> {ca.Subject}</p>
+            <p><b>Status:</b> {ca.Status}</p>
+            <p><b>Planet Code:</b> {ca.Planet__r.Code__c}</p>
+            <p><b>Successful Scan:</b> {ca.Successful_Scan__c}</p>
+        </div>
+        <lightning-button label="Interplanetary Scan" onclick={handleInterplanetaryScan}></lightning-button>
+    </lightning-card>
+</template>

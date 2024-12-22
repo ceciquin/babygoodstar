@@ -13,11 +13,19 @@ const COLUMNS = [
         type: 'url',
         typeAttributes: { label: { fieldName: 'ContactName' }, target: '_blank' },
         cellAttributes: { iconName: 'action:preview' }
+    },
+    {
+        label: 'Case',
+        fieldName: 'CaseURL',
+        type: 'url',
+        typeAttributes: { label: { fieldName: 'CaseNumber' }, target: '_blank' },
+        cellAttributes: { iconName: 'standard:case' }
     }
 ];
 
 export default class InterplanetaryCases extends LightningElement {
-    @track cases;
+    @track cases = [];
+    @track selectedCase;
     @track error;
     columns = COLUMNS;
 
@@ -26,7 +34,8 @@ export default class InterplanetaryCases extends LightningElement {
         if (result.data) {
             this.cases = result.data.map(caseRecord => {
                 let contactUrl = `/lightning/r/Contact/${caseRecord.ContactId}/view`;
-                return {...caseRecord, ContactId: contactUrl };
+                let caseUrl = `/lightning/r/Case/${caseRecord.Id}/view`;
+                return {...caseRecord, ContactId: contactUrl, CaseURL: caseUrl};
             });
             this.error = undefined;
         } else if (result.error) {
@@ -41,5 +50,10 @@ export default class InterplanetaryCases extends LightningElement {
 
     refreshData() {
         refreshApex(this.cases);
+    }
+
+    handleRowSelection(event) {
+        const selectedRow = event.detail.selectedRows[0];
+        this.selectedCase = selectedRow;
     }
 }

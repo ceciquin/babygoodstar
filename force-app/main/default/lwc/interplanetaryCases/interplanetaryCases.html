@@ -4,7 +4,11 @@
             key-field="id"
             data={cases}
             columns={columns}
-            hide-checkbox-column="true">
+            onrowselection={handleRowSelection}>
+            hide-checkbox-column=true>
         </lightning-datatable>
+        <template if:true={selectedCase}>
+            <c-case-viewer case={selectedCase}></c-case-viewer>
+        </template>
     </lightning-card>
 </template>

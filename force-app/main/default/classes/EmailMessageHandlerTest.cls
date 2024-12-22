@@ -3,7 +3,7 @@ private class EmailMessageHandlerTest {
     @IsTest
     static void testProcessEmailMessages() {
         //Create test data - a Planet__c record
-        Planet__c testPlanet = new Planet__c(Name = 'Test Planet', External_id__c = 'AB-12345');
+        Planet_c__c testPlanet = new Planet_c__c(Name = 'Test Planet', Code__c = 'AB-12345');
         insert testPlanet;
 
         //Create a Case record

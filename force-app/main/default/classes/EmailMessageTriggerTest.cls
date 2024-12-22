@@ -3,7 +3,7 @@ private class EmailMessageTriggerTest {
     @IsTest
     static void testEmailMessageInsertion() {
         // Create a Planet__c record as setup for EmailMessage
-        Planet__c testPlanet = new Planet__c(Name = 'Test Planet', External_id__c = 'AB-12345');
+        Planet_c__c testPlanet = new Planet_c__c (Name = 'Test Planet', Code__c = 'AB-12345');
         insert testPlanet;
 
         // Create a Case record as setup for EmailMessage
