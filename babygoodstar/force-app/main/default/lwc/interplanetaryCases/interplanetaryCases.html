@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Interplanetary Cases" icon-name="custom:custom14">
+        <lightning-datatable
+            key-field="id"
+            data={cases}
+            columns={columns}
+            onrowselection={handleRowSelection}>
+            hide-checkbox-column=true>
+        </lightning-datatable>
+        <template if:true={selectedCase}>
+            <c-case-viewer case={selectedCase}></c-case-viewer>
+        </template>
+    </lightning-card>
+</template>

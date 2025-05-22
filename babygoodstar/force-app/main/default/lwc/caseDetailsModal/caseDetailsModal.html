@@ -1,0 +1,29 @@
+<template>
+    <section if:true={isOpen} class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal header -->
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">Case Details</h2>
+            </header>
+            <!-- Modal content -->
+            <div class="slds-modal__content slds-p-around_medium">
+                <dl>
+                    <dt>Subject:</dt>
+                    <dd>{caseRecord.Subject}</dd>
+                    <dt>Status:</dt>
+                    <dd>{caseRecord.Status}</dd>
+                    <dt>Access Code:</dt>
+                    <dd>{caseRecord.AccessCode}</dd>
+                    <dt>Scan Successful:</dt>
+                    <dd>{caseRecord.ScanSuccessful}</dd>
+                </dl>
+            </div>
+            <!-- Modal footer -->
+            <footer class="slds-modal__footer">
+                <lightning-button variant="neutral" label="Close" onclick={closeModal}></lightning-button>
+                <lightning-button variant="brand" label="Call External Service" onclick={callExternalService}></lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div if:true={isOpen} class="slds-backdrop slds-backdrop_open"></div>
+</template>
